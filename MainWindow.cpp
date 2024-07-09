@@ -3,8 +3,11 @@
 #include <QFileDialog>
 #include <QSplitter>
 #include <QWindow>
+#include "config.h"
 
 #include "InsertPathDlg.h"
+
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -102,8 +105,8 @@ void MainWindow::InitPQKit()
 void MainWindow::OnInitializeKitThread()
 {
 	//initialize pqkit
-	CComBSTR bsName = L"13548987983";
-	CComBSTR bsPWD = L"987983";
+    CComBSTR bsName = Config::Instance().GetValue("pqaccount/user", "").toString().toStdString().data(); // L"13548987983";
+    CComBSTR bsPWD =  Config::Instance().GetValue("pqaccount/passwd", "").toString().toStdString().data(); // L"987983";
 	HRESULT hr = m_ptrKit->pq_InitPlatformComponent(m_ptrKitCallback, (int)(this->winId()), bsName, bsPWD);
 	if (S_OK != hr)
 	{

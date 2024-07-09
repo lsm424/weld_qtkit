@@ -16,11 +16,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    config.cpp \
+    log.cpp \
     main.cpp \
-    MainWindow.cpp
+    MainWindow.cpp \
+    easylogging++.cc
 
 HEADERS += \
-    MainWindow.h
+    MainWindow.h \
+    config.h    \
+    log.h   \
+    easylogging++.h
 
 FORMS += \
     MainWindow.ui
@@ -35,3 +41,6 @@ RC_ICONS = app.ico
 
 RESOURCES += \
     MainWindow.qrc
+
+DISTFILES += \
+    config.ini
