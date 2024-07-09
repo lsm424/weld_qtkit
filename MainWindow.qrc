@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Images/compile.png</file>
+        <file>Images/open.png</file>
+        <file>Images/save.png</file>
+        <file>Images/simulate.png</file>
+        <file>Images/insertpath.png</file>
+    </qresource>
+</RCC>
