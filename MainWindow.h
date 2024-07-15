@@ -24,6 +24,7 @@ public:
 	void InitAction();
 	void InitMenu();
 	void InitToolBar();
+    void InitLog();
 
 	void InitPQKit();
 	void ShowPQKitWindown();

@@ -65,10 +65,10 @@
     <ClCompile Include="config.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="log.cpp">
+    <ClCompile Include="components\log\easylogging++.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="easylogging++.cc">
+    <ClCompile Include="components\mysqlpool\mysql_pool.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -126,10 +126,10 @@
     <ClInclude Include="config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="log.h">
+    <ClInclude Include="components\log\easylogging++.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="easylogging++.h">
+    <ClInclude Include="components\mysqlpool\mysql_pool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
