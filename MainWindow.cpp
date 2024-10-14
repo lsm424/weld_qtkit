@@ -169,10 +169,31 @@ void MainWindow::ShowPQKitWindown()
         m_pPQDebugView = QWidget::createWindowContainer(QWindow::fromWinId((WId)hDebugWnd), this);
     }
 
+    ULONG_PTR nOutPutDoc = NULL;
+    m_ptrKit->pq_GetOutPutView(&nOutPutDoc);
+    HWND hnOutPutDocWnd = (HWND)nOutPutDoc;
+    if (nullptr != hnOutPutDocWnd)
+    {
+        m_pOutPutView = QWidget::createWindowContainer(QWindow::fromWinId((WId)hnOutPutDocWnd), this);
+    }
+
+    ULONG_PTR nRobotControlDoc = NULL;
+    m_ptrKit->pq_GetRobotControlView(&nRobotControlDoc);
+    HWND hnRobotControlDocWnd = (HWND)nRobotControlDoc;
+    if (nullptr != hnRobotControlDocWnd)
+    {
+        m_pRobotControlView = QWidget::createWindowContainer(QWindow::fromWinId((WId)hnRobotControlDocWnd), this);
+    }
+
+
     auto splitter = new QSplitter;
     splitter->addWidget(m_pPQModeTreeView);
     splitter->addWidget(m_pPQPlatformView);
-    splitter->addWidget(m_pPQDebugView);
+    splitter->addWidget(&m_TabWdiget);
+    m_TabWdiget.setTabPosition(QTabWidget::South);
+    m_TabWdiget.addTab(m_pPQDebugView, QString::fromLocal8Bit("调试面板"));
+    m_TabWdiget.addTab(m_pRobotControlView, QString::fromLocal8Bit("机器人控制"));
+    m_TabWdiget.addTab(m_pOutPutView, QString::fromLocal8Bit("输出"));
     splitter->setStretchFactor(0, 1);
     splitter->setStretchFactor(1, 5);
     splitter->setStretchFactor(2, 1);
@@ -203,7 +224,8 @@ void MainWindow::OnOpenRobx()
     CComVariant varPara(wsFilePath.c_str());
     CComBSTR bsPara = "";
     CComBSTR bsCmd = "RO_CMD_FILE_OPEN";
-    m_ptrKit->pq_RunCommand(bsCmd, NULL, NULL, bsPara, varPara, &lResult);
+    int i = m_ptrKit->pq_RunCommand(bsCmd, NULL, NULL, bsPara, varPara, &lResult);
+	i = i;
 }
 
 void MainWindow::OnSaveAsRobx()
@@ -240,7 +262,13 @@ void MainWindow::OnSimulate()
 
 void MainWindow::OnInsertPath()
 {
-    InsertPathDlg dlg;
+	long long lResult = 0;
+	CComBSTR bsPara = "";
+	CComBSTR bsCmd = "RO_CMD_GENERATE_PATH"; 
+	m_ptrKit->pq_RunCommand(bsCmd, NULL, NULL, bsPara, CComVariant(), &lResult);
+    
+	/*
+	InsertPathDlg dlg;
     if (QDialog::Rejected == dlg.exec())
     {
         return;
@@ -264,6 +292,7 @@ void MainWindow::OnInsertPath()
 
     ULONG uPathID = 0;
     m_ptrKit->Path_insert_from_point(uRobotID, 1, dPosition, nType, nInstruction, dVel, dSpeedP, nApproach, bsPathName, bsPathGroupName, 0, FALSE, &uPathID);
+	*/
 }
 
 void MainWindow::GetObjIDByName(int i_nType, std::wstring i_wsName, ULONG &o_uID)

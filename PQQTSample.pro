@@ -51,4 +51,5 @@ RESOURCES += \
     MainWindow.qrc
 
 DISTFILES += \
-    config.ini
+    config.ini \
+    scripts/dll.sql

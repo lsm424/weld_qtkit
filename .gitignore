@@ -4,3 +4,4 @@ debug
 *.opendb
 log
 *.log
+*.ini

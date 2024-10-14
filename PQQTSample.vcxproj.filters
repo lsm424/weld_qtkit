@@ -103,9 +103,6 @@
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="MainWindow.qrc">
-      <Filter>Resource Files</Filter>
-    </QtRcc>
     <None Include="Images\compile.png">
       <Filter>Resource Files</Filter>
     </None>
@@ -132,5 +129,10 @@
     <ClInclude Include="components\mysqlpool\mysql_pool.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="MainWindow.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
   </ItemGroup>
 </Project>

@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QCloseEvent>
 #include <QMessageBox>
+#include <QTabWidget>
 
 #include "PQKitInitThread.h"
 #include "PQKitCallback.h"
@@ -44,7 +45,11 @@ private:
 
 	QWidget* m_pPQPlatformView;
 	QWidget* m_pPQModeTreeView;
-	QWidget* m_pPQDebugView;
+    QWidget* m_pPQDebugView;
+    QWidget* m_pOutPutView;
+    QWidget* m_pRobotControlView;
+
+    QTabWidget m_TabWdiget;
 
 private:
 	void closeEvent(QCloseEvent* event);

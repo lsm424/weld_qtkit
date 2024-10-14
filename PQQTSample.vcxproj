@@ -93,6 +93,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>PQQTSample</TargetName>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    <IncludePath>E:\development_software\Qt\5.15.2\msvc2015_64\include;D:\devlopment_software\PQKit_SDK\Sample\PQQTSample\components\log;D:\devlopment_software\PQKit_SDK\Sample\PQQTSample\components\mysqlpool;D:\devlopment_software\MySQL Connector C 6.1\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>release\</OutDir>
@@ -107,15 +108,15 @@
     <LinkIncremental>false</LinkIncremental>
     <GenerateManifest>true</GenerateManifest>
     <EmbedManifest>true</EmbedManifest>
-    <IncludePath>D:\devlopment_software\PQKit_SDK\Sample\PQQTSample\components\mysqlpool;D:\devlopment_software\PQKit_SDK\Sample\PQQTSample\components\log;D:\devlopment_software\Qt\Qt5.12.8\5.12.8\msvc2015_64\include;D:\devlopment_software\MySQL Connector C 6.1\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\devlopment_software\MySQL Connector C 6.1\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\devlopment_software\PQKit_SDK\Sample\PQQTSample\components\mysqlpool;D:\devlopment_software\PQKit_SDK\Sample\PQQTSample\components\log;E:\development_software\Qt\5.15.2\msvc2015_64\include;D:\devlopment_software\MySQL Connector C 6.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\devlopment_software\PQKit_SDK\Sample\PQQTSample\lib;D:\devlopment_software\MySQL Connector C 6.1\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <QtInstall>5.12.8_msvc2015_64</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="QtSettings">
-    <QtInstall>5.12.8_msvc2015_64</QtInstall>
+    <QtInstall>msvc2015_qt5.15.2</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -123,7 +124,7 @@
     <QtModules>core;gui;widgets</QtModules>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="QtSettings">
-    <QtInstall>msvc2015</QtInstall>
+    <QtInstall>msvc2015_qt5.12.8</QtInstall>
     <QtModules>core;gui;widgets;sql</QtModules>
   </PropertyGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
@@ -434,12 +435,11 @@
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="MainWindow.qrc">
-    </QtRcc>
     <None Include="Images\compile.png" />
     <None Include="Images\open.png" />
     <None Include="Images\save.png" />
     <None Include="Images\simulate.png" />
+    <QtRcc Include="MainWindow.qrc" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\PQQTSample_resource.rc" />

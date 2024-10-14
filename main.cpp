@@ -1,15 +1,20 @@
 #include "MainWindow.h"
 
-#include <QApplication>
 
 //#include "easylogging++.h"
 //#include "mysql_pool.h"
 
+//#include "ElaApplication.h"
+//#include "ElaWindow.h"
+#include <QApplication>
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+	//ElaApplication::getInstance()->init();
 
 	MainWindow w;
+	//ElaWindow w;
 	w.showMaximized();
 
 //    MysqlPool *pool = MysqlPool::Instance();
@@ -19,3 +24,4 @@ int main(int argc, char *argv[])
 
     return a.exec();
 }
+
